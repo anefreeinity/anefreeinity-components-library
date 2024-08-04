@@ -18,7 +18,7 @@ const spinnerKeyframes = `
 }
 `;
 
-interface ButtonProps {
+export interface ButtonProps {
     children?: React.ReactNode;
     onClick?: MouseEventHandler<HTMLButtonElement>;
     type?: 'button' | 'submit' | 'reset';
@@ -29,7 +29,7 @@ interface ButtonProps {
     [key: string]: any;
 }
 
-const Button: React.FC<ButtonProps> = ({ children = '', onClick, type = 'button', className = '', disabled = false, property = new ButtonProperty(), isLoading = false, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({ children = '', onClick, type = 'button', className = '', disabled = false, property = new ButtonProperty(), isLoading = false, ...props }) => {
     const classNames = `${property.ButtonSize} ${property.ButtonBorderWidth} ${property.ButtonBorderColor} ${property.ButtonBackgroundColor} ${property.ButtonBackgroundOpacity}
     ${disabled ? `cursor-not-allowed ${property.ButtonTextColorOnDisabled}` : `${property.ButtonTextColor}`}
     ${property.ButtonBorderRadius} ${property.ButtonShadow} ${property.ButtonBackgroundColorOnHover}
@@ -51,5 +51,3 @@ const Button: React.FC<ButtonProps> = ({ children = '', onClick, type = 'button'
         </>
     );
 };
-
-export default Button;

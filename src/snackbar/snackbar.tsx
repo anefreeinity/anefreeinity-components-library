@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { SnackbarProperty, ISnackbarProperty, SnackbarType } from './snackbar-property';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-interface SnackbarProps {
+export interface SnackbarProps {
     title?: string;
     message: string;
     isOpen: boolean;
@@ -17,7 +17,7 @@ interface SnackbarProps {
     property?: ISnackbarProperty;
 }
 
-const Snackbar: React.FC<SnackbarProps> = ({
+export const Snackbar: React.FC<SnackbarProps> = ({
     title,
     message,
     isOpen,
@@ -81,5 +81,3 @@ const Snackbar: React.FC<SnackbarProps> = ({
         </div>
     );
 };
-
-export default Snackbar;

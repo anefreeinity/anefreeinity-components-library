@@ -1,4 +1,6 @@
 import './index.css';
 
 export * from './input';
-export * from './default/default-properties';
+export * from './button';
+export * from './snackbar';
+export * from './default';
