@@ -42,7 +42,7 @@ export const Input: React.FC<InputProps> = ({
     setError = () => {},
     property = new InputProperty(),
     className = '',
-    autoFillBoxBackgroundColor = 'rgba(17, 24, 39, 1)',
+    autoFillBoxBackgroundColor = 'rgba(15, 22, 42, 0.95)',
     autoFillBoxTextColor = 'rgb(255, 255, 255)',
     autoFillCaretColor = 'rgb(255, 255, 255)',
     ...rest
@@ -109,7 +109,7 @@ export const Input: React.FC<InputProps> = ({
         setShowPassword((show) => !show);
     };
 
-    const classNames = `peer px-3 pt-6 pb-2 border focus:${property.InputBoxBorderColor} 
+    const classNames = `peer ${property.InputPaddingStyle} border focus:${property.InputBoxBorderColor} 
           ${property.InputBoxBorderRadius} focus:outline-none ${
               hasError
                   ? `${property.InputBoxBackgroundColor} ${property.InputBoxBackgroundOpacity} 
@@ -147,10 +147,6 @@ export const Input: React.FC<InputProps> = ({
           input:not(:-webkit-autofill) {
             animation-name: onAutoFillCancel;
           }
-
-          .custom-placeholder::placeholder {
-          color: transparent;
-        }
         `}
             </style>
             {isRequired && (
@@ -186,5 +182,3 @@ export const Input: React.FC<InputProps> = ({
         </div>
     );
 };
-
-//${property.InputBoxBackgroundColorOnError} ${property.InputBoxBackgroundOpacityOnError}

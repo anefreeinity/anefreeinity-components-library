@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IInputProperty } from './i-input-property';
 
 interface LabelProps {
@@ -11,13 +11,30 @@ interface LabelProps {
 }
 
 export const Label: React.FC<LabelProps> = ({ id, isFocused, value, hasError, children, property }) => {
+    const smallScreenWidth = 640;
+    const [isSmallScreen, setIsSmallScreen] = useState<boolean>(window.innerWidth < smallScreenWidth);
+
+    const handleResize = () => {
+        setIsSmallScreen(window.innerWidth < smallScreenWidth);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <label
             htmlFor={id}
             className={`absolute ${property.LabelPosition} transition-transform ${property.TransitionDuration} transform ${
                 isFocused || value
-                    ? `${property.LabelFontSizeOnFocus} py-0 ${hasError ? property.LabelColorOnError : property.LabelColorOnFocus}`
-                    : `translate-y-2 ${property.LabelFontSize} ${hasError ? property.LabelColorOnError : property.LabelColor}`
+                    ? `${property.LabelFontSizeOnFocus} py-0 ${hasError ? property.LabelColorOnError : property.LabelColorOnFocus} ${
+                          isSmallScreen ? `left-2 -top-1.5 ${property.LabelBackgroundColorOnFocus} leading-none px-px rounded` : ''
+                      }`
+                    : `md:translate-y-2 ${property.LabelFontSize} ${hasError ? property.LabelColorOnError : property.LabelColor}`
             }`}
         >
             {children}

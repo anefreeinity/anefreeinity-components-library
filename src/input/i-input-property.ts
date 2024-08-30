@@ -23,6 +23,7 @@ export interface IInputProperty {
     LabelColorOnFocus: string;
     LabelColorOnError: string;
     LabelFontSize: string;
+    LabelBackgroundColorOnFocus: string;
     LabelFontSizeOnFocus: string;
     Icon: IconDefinition | null;
     IconPosition: string;
@@ -35,4 +36,5 @@ export interface IInputProperty {
     ErrorMessageFontSize: string;
     ErrorMessagePosition: string;
     TransitionDuration: string;
+    InputPaddingStyle: string;
 }
