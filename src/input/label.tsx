@@ -29,12 +29,12 @@ export const Label: React.FC<LabelProps> = ({ id, isFocused, value, hasError, ch
     return (
         <label
             htmlFor={id}
-            className={`absolute ${property.LabelPosition} transition-transform ${property.TransitionDuration} transform ${
+            className={`absolute transition-transform ${property.TransitionDuration} transform ${
                 isFocused || value
                     ? `${property.LabelFontSizeOnFocus} py-0 ${hasError ? property.LabelColorOnError : property.LabelColorOnFocus} ${
-                          isSmallScreen ? `left-2 -top-1.5 ${property.LabelBackgroundColorOnFocus} leading-none px-px rounded` : ''
+                          isSmallScreen ? `left-2 -top-1.5 ${property.LabelBackgroundColorOnFocus} leading-none px-px rounded` : `${property.LabelPosition}`
                       }`
-                    : `md:translate-y-2 ${property.LabelFontSize} ${hasError ? property.LabelColorOnError : property.LabelColor}`
+                    : `md:translate-y-2 ${property.LabelFontSize} ${hasError ? property.LabelColorOnError : property.LabelColor} ${property.LabelPosition}`
             }`}
         >
             {children}
