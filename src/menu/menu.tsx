@@ -6,7 +6,7 @@ import { Button, ButtonProperty, IButtonProperty, IconLeftOrRight } from '../but
 import { CHILD_BORDERS } from '../default';
 
 interface MenuItem {
-    label: string;
+    label?: string;
     leftActionItem?: IconDefinition | JSX.Element;
     rightActionItem?: IconDefinition | JSX.Element;
     children?: MenuItem[];
@@ -263,7 +263,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ item, index, isLast, setIsOpen, menuR
         <div ref={ref}>
             <button
                 key={index}
-                className={`flex items-center justify-between ${menuProperty.ItemTextColor} ${menuProperty.ItemPaddingStyle} ${menuProperty.ItemTextSize} ${
+                className={`flex items-center justify-start ${menuProperty.ItemTextColor} ${menuProperty.ItemPaddingStyle} ${menuProperty.ItemTextSize} ${
                     menuProperty.ItemWidth
                 } ${menuProperty.ItemTextPosition} ${menuProperty.ItemBackgroundColorOnHover} 
                 ${index === 0 ? firstChildBorderRadius : ''} ${isLast ? lastChildBorderRadius : `border-b ${menuProperty.ItemBorderColor}`} ${
